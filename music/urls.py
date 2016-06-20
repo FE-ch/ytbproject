@@ -2,7 +2,7 @@
 # @Author: ShawnFiend
 # @Date:   2016-06-18 17:58:23
 # @Last Modified by:   root
-# @Last Modified time: 2016-06-20 16:31:57
+# @Last Modified time: 2016-06-20 23:51:47
 
 from django.conf.urls import url
 from . import views
@@ -16,8 +16,8 @@ urlpatterns = [
     # /music/<album_id>/
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
 
-    # /music/
-    url(r'^album/add/$', views.AlbumCreate.as_view(), name='album-add')
+    # /music/album/add
+    url(r'^album/add/$', views.AlbumCreate.as_view(), name='album-add'),
 
     # /music/<album_id>/favorite
     # url(r'^(?P<album_id>[0-9]+)/favorite/$', views.favorite, name='favorite'),
