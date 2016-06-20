@@ -1,14 +1,13 @@
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-{# <link rel="stylesheet" type="text/css" href="{% static "music/style.css" %}"> #}
-
-{% if all_albums %}
-    <h3>Here are all my albums</h3>
-    <ul>
-        {% for album in all_albums %}
-            <li><a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a></li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <h3>You don't have any albums</h3>
-{% endif %}
+{% extends "music/base.html" %}
+{% block title %}Album{% endblock title %}
+{% block body %}
+    {% if all_albums %}
+        <ul>
+            {% for album in all_albums %}
+                <li><a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>You don't have any albums</h3>
+    {% endif %}
+{% endblock body %}
